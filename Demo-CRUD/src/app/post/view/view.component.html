@@ -1,0 +1,23 @@
+<div class="container">
+  <div *ngIf="isLoading">Loading...</div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  <h1 class="text-cente">View Post</h1>
+  <a button type="button" class="btn btn-warning" (click)="routeToBack()">Back</a>
+
+  <div *ngIf="!isLoading && !errorMessage">
+    <div>
+      <strong>ID:</strong>
+      <p>{{post.id}}</p>
+    </div>
+    <div>
+      <strong>Title:</strong>
+      <p>{{post.title}}</p>
+    </div>
+    <div>
+      <strong>Body:</strong>
+      <p>{{post.body}}</p>
+    </div>
+  </div>
+
+</div>

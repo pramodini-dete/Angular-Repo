@@ -1,0 +1,37 @@
+<div class="container">
+  <div *ngIf="isLoading" class="loading">Loading posts...</div>
+  <div *ngIf="errorMessage" class="error">
+    <p>{{ errorMessage }}</p>
+  </div>
+  <h1 class="text-center">Angular17 Curd Application</h1>
+  <a href="#" routerLink="create" class="btn btn-success">Create Post</a>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Post</th>
+          <th width="250px">Action</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="!isLoading && posts.length > 0">
+        <tr *ngFor="let post of posts">
+          <td>{{post.id}}</td>
+          <td>{{post.title}}</td>
+          <td>{{post.body}}</td>
+          <td>
+            <div class="action-buttons">
+              <a href="#"[routerLink]="['/view/',post.id]" class="btn btn-info">View</a>
+              <a href="#"[routerLink]="['/edit/',post.id]" class="btn btn-primary">Edit</a>
+              <button class="btn btn-danger" type="button"(click)="deletePost(post.id)">Delete</button>
+            </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
